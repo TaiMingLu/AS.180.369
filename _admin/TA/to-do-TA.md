@@ -1,8 +1,20 @@
+20240906-for-20240909 To Do List:
+- [ ] EBM By 09/09: remind class to take pre-NASA webinar survey linked in confirmation email
+- [~] EBM By 09/09: gather student gmails to add to calendar event for AI summaries + recordings
+- [ ] EBM By 09/09: discuss with class to start a group chat in Slack or Whatsapp
+- [x] EBM By 09/09: delete Thanksgiving break and extra class at end of semester
+- [ ] EBM By 09/09: get prepared to work on my own paper alongside class
+- [ ] EBM By 09/09: make Instructors Notes for class 2
+- [x] EBM By 09/09: update schedule to have JHU econ library guide right before Litmaps intro
+- [ ] 
+- [ ] 
+
+
 20240823-for-20240826 To Do List:
 - [x] EBM By 08/26: go to library to see about access to premiuem gen AI's
 - [x] EBM By 08/26: create Instructors-Notes folder within _admin with notes file for first class
-- [ ] EBM By 08/26: Go to library and figure out how students can access the Dennett article through the library's resources
-- [ ] EBM By 08/26: add NASA workshop to calendar on the 17th and 24th(only second one will be an assignment); reach out to DUTC to see about getting recording of first one
+- [x] EBM By 08/26: Go to library and figure out how students can access the Dennett article through the library's resources
+- [x] EBM By 08/26: add NASA workshop to calendar on the 17th and 24th(only second one will be an assignment); reach out to DUTC to see about getting recording of first one
 
 20240816-for-20240823 To Do List:
 - [~] EBM By 08/23: Gain access to paid AI's (GT-4o and Claude) using AWS and Azure + figure out which version of Claude is available

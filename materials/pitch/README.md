@@ -67,16 +67,17 @@ research paper.
     - [What is BibTeX?](https://www.bibtex.com/g/bibtex-format/#what-is-bibtex)
     - [BibTeX format explained](https://www.bibtex.com/g/bibtex-format/#bibtex-format-explained)
     - Discussion of BibTeX issues
-3. **CC, TA's** [Litmaps](https://www.litmaps.com/) (45 min.)
+3. **CC, TA's** [JHU Economics Libary Guide](https://guides.library.jhu.edu/economics) (5 min.)
+4. **CC, TA's** [Litmaps](https://www.litmaps.com/) (45 min.)
     - [Synchronous Litmaps demonstration](https://www.youtube.com/watch?v=TJ_wkVDQBrs)
         - Finding literature via Litmaps
-4. **CC, TA's** [Paperpile](https://paperpile.com/) (45 min.)
+5. **CC, TA's** [Paperpile](https://paperpile.com/) (45 min.)
     - Create a free trial Paperpile account
     - Connect your account to the jhu library for help in finding papers
     - Sharing vs exporting bibliographies
     - How do you organize your Paperpile folders?
     - [Synchronous Paperpile demonstration](https://www.youtube.com/watch?v=0p2QbrmePKk)
-5. **CC, TA's** Sharing BibTeX files between Paperpile & Litmaps (15 min)
+6. **CC, TA's** Sharing BibTeX files between Paperpile & Litmaps (15 min)
 
 **Homework**
 - Use Litmaps to conduct two literature searches

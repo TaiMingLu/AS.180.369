@@ -13,10 +13,12 @@ introduce Chris and TA’s
 
 **Sign up for necessary services:**
 
-- sign in to GitHub 
-- sign up for ChatGPT
+- sign up for GitHub
+  - write a description of who you are on your profile (e.g. "Undergraduate at Johns Hopkins University")
+- sign up for ChatGPT (as of 08/26/24 a regular account provides slower access to ChatGPT-4o)
+- sign up for Claude AI(as of 08/26/24 a regular account provides access to Claude 3.5 Sonnet)
 - discuss importance of interacting with paywalls legally
-- sign up for The Atlantic free trial (needs credit card, but Chris had a workaround) (this took around 8 minutes of class time, but pretty sure we didn’t need that much time)
+- sign up for The Atlantic free trial (needs credit card, but Chris had a workaround) (can use Archive.org and the article's URL if students don't have a credit card)
 - print pdf of article to computer (explain how this assignment is meant to help exercise your chatGPT and summarization muscles
 
 (minutes 20-40)
