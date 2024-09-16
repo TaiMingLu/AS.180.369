@@ -13,14 +13,14 @@ CC, TA's tool micro-demos
 - Create an image on sciserver.org/compute using the container *econ-ark*
 - Navigate to persistent folder
 - Clone repo
-- pip install jupyter-book
-- build first demo under contrib/camriddell/
+- Explain jupyter notebook using contrib/camriddell/jupyterbook-demo/Markdown-And-Code-examples.ipynb
+- build first demo 
 ```
 pip install jupyter-book
 jupyter-book build jupyterbook-demo
 ```
 - How do I use the launcher?
-- HOw do I upload files?
+- How do I upload files?
 - How do I use the terminal?
 - how do I toggle between folders
 
@@ -62,6 +62,9 @@ jupyter-book build jupyterbook-demo
 **Paperpile demo** (110-130min)
 - discuss paperpile
 - HW: Journal of Economic Perspectives. Student should add a volume on paperpile and share it with the class.
+
+**Litmap demo**
+- HW: Create a litmap from a seed paper and explore features (add connecting papers)
 
   
 **Topic choosing** (130-140 mins) 
