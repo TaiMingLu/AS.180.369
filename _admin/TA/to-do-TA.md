@@ -1,4 +1,9 @@
+20240913-for-20240916 To Do List:
+- [ ]EBM By 09/15: email students asking them to sign up for the NASA webinar if they haven't already
+- [ ]EBM By 09/16: discuss w/ CC that Paperpile actually costs $35
+
 20240906-for-20240909 To Do List:
+- [ ]EBM By 09/09: print out faces of students for seating chart
 - [ ] EBM By 09/09: remind class to take pre-NASA webinar survey linked in confirmation email
 - [~] EBM By 09/09: gather student gmails to add to calendar event for AI summaries + recordings
 - [ ] EBM By 09/09: discuss with class to start a group chat in Slack or Whatsapp
