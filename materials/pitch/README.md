@@ -113,10 +113,9 @@ items:
 - 10 minutes per student + 5 min Q&A + 5 min allocation (×7 students = 140 min)
 
 **Homework**
-- Draft an abstract & introduction to your paper.
-    - Include a collection of papers you think you will cite.
-    - Refine the assortment of papers from Litmaps into a *collection* in Paperpile.
-    - Obtain PDF files of all papers.
-    - Add Paperpile tags to each paper to track their thesis.
-- Ensure you have new commits and rounds of Chat GPT editing on your paper visible via GitHub!
-    - Space your work out across at least 3 days (we can track this).
+- Choose two topics* from the JEP folder I shared (*or 1 topic from there and 1 topic of your own that you’re interested in) and 1 of the topics you chose on the list of topics on the Github issue (i.e. GDP Growth and political party in the US, or Inflation change and political party in the US)
+- Make a Litmap for each topic (3 litmaps) so that you can get a sense of the literature that exists in the space (be thoughtful with which articles you add to the litmap)
+  - Send me a screenshot of all 3 litmaps by class on Monday
+- Once you have more of a grasp on each topic, write a paragraph about each of them and what potential research might look like for each of them
+- Make at least 1 improvement to each paragraph using ChatGPT and commit the change so that I can see it in your history (with your ChatGPT prompt as the commit message).
+- Be ready to present the two topics you’re most interested in to class on Monday
