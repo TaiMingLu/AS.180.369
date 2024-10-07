@@ -1,2 +1,2 @@
 format: jb-book
-root: Paper_Terry
+root: literature  # This is your main document (literature.ipynb or literature.md)

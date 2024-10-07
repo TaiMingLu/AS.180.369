@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Privacy and Utility in AI Models &#8212; My Jupyter Book</title>
+    <title>Data Privacy and Utility in AI Models &#8212; Literature Review</title>
   
   
   
@@ -149,7 +149,7 @@
   
   
   
-    <p class="title logo__title">My Jupyter Book</p>
+    <p class="title logo__title">Literature Review</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -297,7 +297,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -313,6 +315,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -327,20 +337,41 @@ document.write(`
 date: 2024-10-07
 authors:</p>
 <ul class="simple">
-<li><p>name: Terry
-roles:</p>
-<ul>
-<li><p>Conceptualization</p></li>
-<li><p>Visualization</p></li>
-</ul>
-</li>
+<li><p>name: Terry Taiming Lu</p></li>
 </ul>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="data-privacy-and-utility-in-ai-models">
 <h1>Data Privacy and Utility in AI Models<a class="headerlink" href="#data-privacy-and-utility-in-ai-models" title="Link to this heading">#</a></h1>
-<p>The balance between data privacy and utility is a crucial issue, particularly in the context of large-scale AI models. Differential privacy has emerged as a popular solution to protect sensitive information in datasets, but it often introduces significant noise, leading to reduced data accuracy and economic inefficiencies [&#64;privacy_ruggles_2024]. This trade-off has been further examined in the context of health disparities, where privacy measures disproportionately distort data for smaller populations, raising concerns about fairness and resource allocation [&#64;differential_santoslozada_2020].</p>
-<p>Traditional statistical disclosure methods have been defended as viable alternatives, suggesting that newer techniques like differential privacy may not always offer superior protection without substantial economic costs [&#64;rejoinder_muralidhar_2023]. In response, optimization frameworks have been proposed to find a middle ground, allowing for both privacy and data utility, though they require careful balancing to avoid significant losses in either area [&#64;balancing_hotz_2022].</p>
-<p>The risks associated with privacy leakage from AI models, particularly in high-stakes sectors like healthcare and finance, underscore the need for better privacy-preserving techniques. Misuse of privacy mechanisms can lead to economic losses through reduced data reliability and non-compliance with regulations, making this a critical area for future research [&#64;limits_domingoferrer_2021].</p>
+<p>The balance between data privacy and utility is a crucial issue, particularly in the context of large-scale AI models. Differential privacy has emerged as a popular solution to protect sensitive information in datasets, but it often introduces significant noise, leading to reduced data accuracy and economic inefficiencies <span id="id1">[<a class="reference internal" href="#id7" title="Steven Ruggles. When privacy protection goes wrong: how and why the 2020 census confidentiality program failed. Journal of Economic Perspectives, 2024. doi:10.1257/JEP.38.2.201.">Ruggles, 2024</a>]</span>. This trade-off has been further examined in the context of health disparities, where privacy measures disproportionately distort data for smaller populations, raising concerns about fairness and resource allocation <span id="id2">[<a class="reference internal" href="#id8" title="Alexis R. Santos-Lozada, Jeffrey T. Howard, and Ashton M. Verdery. How differential privacy will affect our understanding of health disparities in the united states. Proceedings of the National Academy of Sciences of the United States of America, 2020. doi:10.1073/PNAS.2003714117.">Santos-Lozada <em>et al.</em>, 2020</a>]</span>.</p>
+<p>Traditional statistical disclosure methods have been defended as viable alternatives, suggesting that newer techniques like differential privacy may not always offer superior protection without substantial economic costs <span id="id3">[<a class="reference internal" href="#id9" title="K. Muralidhar and J. Domingo-Ferrer. A rejoinder to garfinkel (2023) – legacy statistical disclosure limitation techniques for protecting 2020 decennial us census: still a viable option. Journal of Official Statistics, 2023. doi:10.2478/JOS-2023-0019.">Muralidhar and Domingo-Ferrer, 2023</a>]</span>. In response, optimization frameworks have been proposed to find a middle ground, allowing for both privacy and data utility, though they require careful balancing to avoid significant losses in either area <span id="id4">[<a class="reference internal" href="#id10" title="V. J. Hotz, C. Bollinger, T. Komarova, C. Manski, R. Moffitt, Denis Nekipelov, Aaron J. Sojourner, and B. Spencer. Balancing data privacy and usability in the federal statistical system. Proceedings of the National Academy of Sciences of the United States of America, 2022. doi:10.1073/PNAS.2104906119.">Hotz <em>et al.</em>, 2022</a>]</span>.</p>
+<p>The risks associated with privacy leakage from AI models, particularly in high-stakes sectors like healthcare and finance, underscore the need for better privacy-preserving techniques. Misuse of privacy mechanisms can lead to economic losses through reduced data reliability and non-compliance with regulations, making this a critical area for future research <span id="id5">[<a class="reference internal" href="#id11" title="Josep Domingo-Ferrer, David Sánchez, and Alberto Blanco-Justicia. The limits of differential privacy (and its misuse in data release and machine learning). Communications of The ACM, 2021. doi:10.1145/3433638.">Domingo-Ferrer <em>et al.</em>, 2021</a>]</span>.</p>
+<section id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id6">
+<div role="list" class="citation-list">
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Steven Ruggles. When privacy protection goes wrong: how and why the 2020 census confidentiality program failed. <em>Journal of Economic Perspectives</em>, 2024. <a class="reference external" href="https://doi.org/10.1257/JEP.38.2.201">doi:10.1257/JEP.38.2.201</a>.</p>
+</div>
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Alexis R. Santos-Lozada, Jeffrey T. Howard, and Ashton M. Verdery. How differential privacy will affect our understanding of health disparities in the united states. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, 2020. <a class="reference external" href="https://doi.org/10.1073/PNAS.2003714117">doi:10.1073/PNAS.2003714117</a>.</p>
+</div>
+<div class="citation" id="id9" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>K. Muralidhar and J. Domingo-Ferrer. A rejoinder to garfinkel (2023) – legacy statistical disclosure limitation techniques for protecting 2020 decennial us census: still a viable option. <em>Journal of Official Statistics</em>, 2023. <a class="reference external" href="https://doi.org/10.2478/JOS-2023-0019">doi:10.2478/JOS-2023-0019</a>.</p>
+</div>
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>V. J. Hotz, C. Bollinger, T. Komarova, C. Manski, R. Moffitt, Denis Nekipelov, Aaron J. Sojourner, and B. Spencer. Balancing data privacy and usability in the federal statistical system. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, 2022. <a class="reference external" href="https://doi.org/10.1073/PNAS.2104906119">doi:10.1073/PNAS.2104906119</a>.</p>
+</div>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Josep Domingo-Ferrer, David Sánchez, and Alberto Blanco-Justicia. The limits of differential privacy (and its misuse in data release and machine learning). <em>Communications of The ACM</em>, 2021. <a class="reference external" href="https://doi.org/10.1145/3433638">doi:10.1145/3433638</a>.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -380,6 +411,21 @@ roles:</p>
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -389,7 +435,7 @@ roles:</p>
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Terry Taiming Lu
 </p>
 
   </div>
