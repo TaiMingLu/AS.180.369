@@ -24,17 +24,11 @@
     - Do this across at least 3 commits over 2 days.
 - *TA* Review [Matt Zahn's ‘Job Market Paper’](https://github.com/matthew-zahn/matthew-zahn.github.io/blob/master/files/papers/choice_cost/JMPZahn.pdf). Bonus points for the person that finds the most typos!
 
-## Class 6 — Coping Strategies
+## Class 6 — Making Progress
 
 [Zoom recording. Requires JHU login.](https://livejohnshopkins-my.sharepoint.com/:v:/g/personal/mzahn2_jh_edu/EQdZHFe5L8pJu5vCz0mMYIYBtB5NVxPLGpiDp8IxA43Nsg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=uE33s1)
 
-**Agenda**
-- Share your *improved* visualization!
-    - Students will use Zoom to share their screen & Jupyter Notebook.
-    - Speak to the improvements made on the data visualization and justify
-      why you made those changes.
-    - We will work through any `git` difficulties you encountered.
-
+### Agenda
 - *Grad TA* Coping with `git` and https://github.com (30 min.)
     - Getting your bearing at the command line
     - Getting your bearing with `git`
@@ -47,10 +41,10 @@
         - How to recognize when packages are missing?
         - How to find and document missing packages?
 
-**Homework**
-- Continue working on the Introduction and Abstract for final papers.
-- Use ChatGPT to improve your writing. Please save your ChatGPT prompts in your commit messages.
-- Spread out commit messages over at least three days.
+### Homework
+- Complete NASA course and quiz so you get certificate
+- Continue working on the Literature Review and Abstract for final papers.
+- Make a start on the introduction
 
 **Helpful notes**
 - Abstract:
@@ -69,8 +63,8 @@
 
 [Zoom recording. Requires JHU login.](https://livejohnshopkins-my.sharepoint.com/:v:/g/personal/mzahn2_jh_edu/EZZescblGOBEpvWgNGqhJ6YB3dSjrDGW49exKc_EnpGmSw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=6m0VKz)
 
-**Agenda**
-- Show us your Abstract & Introduction!
+### Agenda
+- Show us your new Introduction & **improved** Abstract!
     - Share you experience in crafting Chat GPT prompts to give you feedback.
     - What advice did you accept? What advice did you reject?
 
@@ -87,25 +81,24 @@
     - How do I create a new `pandas` DataFrame from some other data source?
         - How read a `.csv`, how to read an excel file (`.xls`, `.xlsx`)
 
-- *TA* Coping with the research process (30 min.)
-    - What do I do when I can’t move my research forward?
-    - What do I do when I can’t think of what else to write?
-    - How do I know I can trust my results?
-
 **Homework**
+- Read the [Korinek](https://www.aeaweb.org/articles?id=10.1257/jel.20231736) paper
+    - Add it to your paperpile
+    - Prepare to identify the tools/ideas you would consider using from the Korinek paper.
+    - In the next class, you will write a paragraph on the above.
 - Obtain and explore some data that are relevant to your topic.
     - Conduct an exploration/preliminary analysis of your obtained data set(s).
 - Be prepared to present to the class on your preliminary analysis of the data.
-- Make sure you are working on your Jupterhub and are `git add`ing and `git commit`ing
-  your work regularly.
-  - **Spread out commit messages over at least three days.**
+- Make sure you are working on your Jupterhub
+    - and are `git add`ing and `git commit`ing   your work regularly.
+    - **Spread out commit messages over at least three days.**
 - Prepare for 10 minute discussion where you are in the next class.
-- Prepare to identify the tools/ideas you would consider using from the Korinek paper.
-  - In the next class, you will write a paragraph on the above.
+- **Once you're finished this, make sure to push all your work from your Sciserver into your Github Repo**
+  - Once you try this, if you find you're having difficulty with this, ask AI. If you're still struggling, reach out to Ethan or Adrian.
 
 ## Class 8
 
-**Agenda**
+### Agenda
 - Discussions
 - Review pandas data loading
 - Write a paragraph on the tools/ideas you would consider using from the Korinek paper.
@@ -127,6 +120,11 @@ build-jb
 # note that this link should appear in your terminal screen, simply click on it to open it in a new tab.
 ```
 
+- *TA* Coping with the research process (30 min.)
+    - What do I do when I can’t move my research forward?
+    - What do I do when I can’t think of what else to write?
+    - How do I know I can trust my results?
+  
 **Homework**
 - Write a first draft of your literature summary.
 - Write a first draft of your methodology.
@@ -135,7 +133,7 @@ build-jb
 
 ## Class 9
 
-**Agenda**
+### Agenda
 
 - Present your literature summary & methodology sections.
     - 10 minutes per student.
@@ -155,7 +153,7 @@ build-jb
 ## Class 10
 [Zoom link](https://zoom.us/j/99322446014?pwd=TWVRZk9iaUpTTktxa1hoQmREYjRaUT09)
 
-**Agenda**
+### Agenda
 - Discuss your results section (10 minutes ea).
 - Discussion of ChatGPT/AI Whispering practices and approahces.
 - Demonstrate jupyter-nbconvert to export jupyter rise slides.
