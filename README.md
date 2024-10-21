@@ -155,17 +155,17 @@ languages (though having taken a formal course in such a language is not require
 
 | #  | Date                                 | Phase               |                 Due                             |
 |:--:|--------------------------------------|---------------------|:-----------------------------------------------:|
-| 1  | [Mon Aug 26](materials/setup)        | 0. the setup        |                                                 |
+| 1  | [Mon Aug 26](materials/setup)        | 0. the setup        |               see this class' agenda            |
 | 2  | [Mon Sep 9](materials/pitch)         | 1. the pitch        |     Dennett Summary; signup for NASA workshop   |
-| 3  | [Mon Sep 16](materials/pitch)        | 1. the pitch        |                                                 |
+| 3  | [Mon Sep 16](materials/pitch)        | 1. the pitch        |                   see this class' agenda        |
 | 4  | [Mon Sep 23](materials/pitch)        | 1. the pitch        |  2×3-min Research Pitches (presented in-class)  |
 | 5  | [Mon Sep 30](materials/draft)        | 2. the draft        |      Watch 2nd NASA Workshop                    |
-| 6  | [Mon Oct 7](materials/draft)         | 2. the draft        |                                                 |
-| 7  | [Mon Oct 14](materials/draft)        | 2. the draft        |                                                 |
-| 8  | [Mon Oct 21](materials/draft)        | 2. the draft        |                                                 |
-| 9  | [Mon Oct 28](materials/submission)   | 2. the draft        |                                                 |
+| 6  | [Mon Oct 7](materials/draft)         | 2. the draft        |                  see this class' agenda         |
+| 7  | [Mon Oct 14](materials/draft)        | 2. the draft        |                 see this class' agenda          |
+| 8  | [Mon Oct 21](materials/draft)        | 2. the draft        |            see this class' agenda               |
+| 9  | [Mon Oct 28](materials/submission)   | 2. the draft        |                  see this class' agenda         |
 | 10 | [Mon Nov 4](materials/submission)    | 2. the draft        |      First Draft of Paper (submitted online)    |
-| 11 | [Mon Nov 11](materials/submission)   | 3. the submission   |                                                 |
+| 11 | [Mon Nov 11](materials/submission)   | 3. the submission   |             see this class' agenda              |
 | 12 | [Mon Nov 18](materials/presentation) | 4. the presentation |     Final Draft of Paper (submitted online)     |
 | 13 | [Mon Dec 2](materials/presentation)  | 4. the presentation | Final (15-min) Presentation (presented in-class)|
 

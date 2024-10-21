@@ -15,13 +15,7 @@ Chris gives feedback and asks about working with Chat-GPT
 - Focus on pandas, changing data frame, regression, dealing with output
 
 ~15min
-**Adrian** 
-- Walkthrough of the REMARK from Alan to show how a finished project might look like
-- Cover:
-  - Structure (one markdown file which includes others)
-  - Hyperlinks to websites, sections, papers
-  - Including pictures, notebooks (see in appendix)
-  - Math, footnotes, comments
+
  
   
 **Homoework**
