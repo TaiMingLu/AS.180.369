@@ -32,6 +32,92 @@ Our contribution is three-fold:
 Traditional statistical disclosure methods have been defended as viable alternatives, suggesting that newer techniques like differential privacy may not always offer superior protection without substantial economic costs ([Muralidhar and Domingo-Ferrer, 2023](#rejoinder_muralidhar_2023)). In response, optimization frameworks have been proposed to find a middle ground, allowing for both privacy and data utility, though they require careful balancing to avoid significant losses in either area ([Hotz et al., 2022](#balancing_hotz_2022)).
 The risks associated with privacy leakage from AI models, particularly in high-stakes sectors like healthcare and finance, underscore the need for better privacy-preserving techniques. Misuse of privacy mechanisms can lead to economic losses through reduced data reliability and non-compliance with regulations, making this a critical area for future research ([Domingo-Ferrer et al., 2021](#limits_domingoferrer_2021)).
 
+
+
+
+## Privacy Leakage in LLMs
+
+
+### Problem Formulation
+
+The primary objective of this study is to investigate the potential privacy risks associated with large language models (LLMs). Specifically, we aim to understand how and under what conditions LLMs memorize sensitive information from their training data and how likely it is that such information can be exposed during inference. We focus on answering the following key questions:
+
+1. **To what extent do LLMs memorize sensitive information during training?**
+2. **What factors influence the likelihood of privacy leakage in LLMs?**
+3. **How effective are privacy-preserving techniques, such as differential privacy, in mitigating these risks?**
+
+The goal is to quantify the trade-off between model utility and privacy risk, providing insight into how to train LLMs while minimizing the potential for privacy breaches.
+
+
+### Problem Formulation
+
+The primary objective of this study is to investigate the potential privacy risks associated with large language models (LLMs). Specifically, we aim to understand how and under what conditions LLMs memorize sensitive information from their training data and how likely it is that such information can be exposed during inference. We focus on answering the following key questions:
+
+1. **To what extent do LLMs memorize sensitive information during training?**
+2. **What factors influence the likelihood of privacy leakage in LLMs?**
+3. **How effective are privacy-preserving techniques, such as differential privacy, in mitigating these risks?**
+
+The goal is to quantify the trade-off between model utility and privacy risk, providing insight into how to train LLMs while minimizing the potential for privacy breaches.
+
+### Method
+
+The method used in this study aims to analyze privacy leakage risks in LLMs through simple data analysis and visualization techniques.
+
+#### 1. Data Collection
+
+We used the FineWeb dataset (Penedo et al., 2024), which is designed to provide high-quality text data from the web at scale. This dataset was selected due to its diverse content, which allowed us to analyze potential privacy risks associated with LLMs. In addition, we generated synthetic data that included specific sensitive information, such as randomly generated names and addresses. This allowed us to evaluate whether LLMs could potentially memorize and expose sensitive information.
+
+#### 2. Data Analysis
+
+We analyzed the dataset to identify patterns that could lead to privacy risks. Specifically, we looked at the frequency of sensitive information, such as names and addresses, and explored whether these data points are repeated across different parts of the dataset. This analysis helped us understand the characteristics of the data that could contribute to privacy leakage.
+
+#### 3. Privacy Leakage Evaluation
+
+To evaluate privacy leakage, we used a simple visualization approach:
+
+- **Data Visualization**: We visualized the frequency and distribution of sensitive information in the dataset using bar charts and histograms. This helped us identify which types of sensitive information were most at risk of being memorized by LLMs.
+
+#### 4. Privacy-Preserving Techniques
+
+We explored privacy-preserving techniques, such as differential privacy, by simulating the effect of adding noise to the dataset. This allowed us to visualize how privacy-preserving methods could alter the data distribution and reduce the likelihood of sensitive information being memorized.
+
+#### 5. Metrics
+
+We used the following metrics for evaluation:
+
+- **Frequency of Sensitive Information**: The occurrence of specific sensitive data points within the dataset.
+- **Impact of Noise Addition**: A comparison of the dataset before and after applying differential privacy techniques to evaluate changes in data distribution.
+- **Visualization Insights**: Insights gained from visualizing the dataset and the effect of privacy-preserving methods.
+
+#### 6. Experimental Setup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## References
 
 - <a id="privacy_ruggles_2024"></a>Ruggles, S. (2024). When Privacy Protection Goes Wrong: How and Why the 2020 Census Confidentiality Program Failed. *Journal of Economic Perspectives*. doi: [10.1257/JEP.38.2.201](https://doi.org/10.1257/JEP.38.2.201)
@@ -52,3 +138,9 @@ The risks associated with privacy leakage from AI models, particularly in high-s
 - <a id="privacy_jayaraman_2019"></a>Jayaraman, B., & Evans, D. (2019). Evaluating Differentially Private Machine Learning in Practice. *Proceedings of the 28th USENIX Security Symposium*.
 - <a id="differential_abadi_2016"></a>Abadi, M., Chu, A., Goodfellow, I., McMahan, H. B., Mironov, I., Talwar, K., & Zhang, L. (2016). Deep Learning with Differential Privacy. *Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security*.
 - <a id="malicious_brundage_2018"></a>Brundage, M., Avin, S., Clark, J., Toner, H., Eckersley, P., Garfinkel, B., Dafoe, A., Scharre, P., Zeitzoff, T., Filar, B., Anderson, H., Roff, H., Crootof, R., Evans, O., Page, M., Bryson, J., Yampolskiy, R., & Amodei, D. (2018). The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation. *arXiv preprint arXiv:1802.07228*.
+- Penedo, G., Kydlíček, H., Ben allal, L., Lozhkov, A., Mitchell, M., Raffel, C., Von Werra, L., & Wolf, T. (2024). The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. *arXiv preprint arXiv:2406.17557*. [https://arxiv.org/abs/2406.17557](https://arxiv.org/abs/2406.17557)
+
+
+
+
+
