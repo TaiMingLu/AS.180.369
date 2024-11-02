@@ -92,32 +92,26 @@ We used the following metrics for evaluation:
 #### 6. Experimental Setup
 
 
-To evaluate privacy leakage in LLMs, we designed experiments focusing on model memorization tendencies, the effectiveness of privacy-preserving techniques, and the economic implications of privacy risks. Our setup involved controlled trials using both real-world and synthetic data, allowing us to quantify privacy risks under varying model configurations.
+To evaluate privacy leakage in LLMs, we conducted controlled experiments examining model memorization, the effectiveness of privacy-preserving techniques, and the economic impact of privacy risks using real and synthetic data across various model configurations.
 
 1. **Model Selection**  
-   We used a range of transformer-based language models, varying in size from small to large, to examine the influence of model scale on privacy leakage. Models were fine-tuned on the FineWeb dataset and synthetic data containing sensitive information, allowing us to simulate real-world scenarios where sensitive data may be inadvertently exposed.
+   We tested transformer-based models of different sizes on the FineWeb dataset and synthetic data with sensitive information to simulate real-world privacy risks.
 
-2. **Training and Memorization Testing**  
-   Each model was trained under controlled conditions, with intervals of evaluation to check for memorization of sensitive information. For this, we queried models with prompts that could trigger the retrieval of memorized data, measuring how frequently sensitive information (e.g., names and addresses) was exposed.
+2. **Memorization Testing**  
+   Models were evaluated at intervals for sensitive data exposure (e.g., names, addresses) by querying prompts likely to retrieve memorized content.
 
-3. **Privacy-Preserving Technique Application**  
-   Differential privacy was implemented at different noise levels to observe its impact on memorization rates. For comparison, we tested various noise configurations, balancing the trade-off between privacy preservation and model utility. The addition of noise was carefully controlled to assess its effects on the accuracy and reliability of model outputs.
+3. **Privacy Techniques**  
+   Differential privacy with varying noise levels was applied to measure its effect on memorization rates, balancing privacy and model performance.
 
-4. **Economic Impact Assessment**  
-   To assess the economic implications of privacy leaks, we developed a hypothetical cost model that includes direct costs such as fines, litigation fees, and breach mitigation efforts, as well as indirect costs like loss of consumer trust. This cost model was informed by recent case studies on privacy breaches, allowing us to contextualize our findings within realistic economic scenarios.
+4. **Economic Impact Model**  
+   We created a cost model based on case studies to estimate direct and indirect costs (e.g., fines, loss of trust) associated with privacy breaches.
 
 5. **Evaluation Metrics**  
-   - **Exposure Frequency**: The percentage of queries that resulted in the exposure of sensitive information.
-   - **Utility Degradation**: The reduction in model performance on standard tasks when privacy-preserving techniques were applied.
-   - **Cost Impact Estimation**: The financial burden of privacy leaks, calculated based on hypothetical scenarios derived from case studies.
+   - **Exposure Frequency**: Queries resulting in sensitive information exposure.
+   - **Utility Degradation**: Model performance reduction with privacy techniques.
+   - **Cost Impact**: Estimated financial impact from privacy breaches.
 
-This experimental setup allowed us to analyze the conditions under which privacy risks arise and assess the practical effectiveness of privacy-preserving solutions. The findings aim to guide future efforts in developing secure and economically viable LLM applications.
-
-
-
-
-
-
+This setup enabled us to analyze privacy risks and the practical efficacy of privacy solutions, guiding secure and economically viable LLM applications.
 
 
 
