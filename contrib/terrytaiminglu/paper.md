@@ -92,28 +92,26 @@ We used the following metrics for evaluation:
 #### 6. Experimental Setup
 
 
-To evaluate privacy leakage in LLMs, we conducted controlled experiments examining model memorization, the effectiveness of privacy-preserving techniques, and the economic impact of privacy risks using real and synthetic data across various model configurations.
+To assess privacy leakage in LLMs, we designed experiments that examine memorization behavior, the effectiveness of privacy-preserving methods, and the economic implications of potential data breaches. This involved controlled trials using both real-world and synthetic data to understand privacy risks under different model configurations.
 
-1. **Model Selection**  
-   We tested transformer-based models of different sizes on the FineWeb dataset and synthetic data with sensitive information to simulate real-world privacy risks.
+1. **Model Scope**  
+   We employed transformer-based models of varying sizes, trained on the FineWeb dataset and synthetic datasets with embedded sensitive data, replicating real-world privacy risk conditions.
 
 2. **Memorization Testing**  
-   Models were evaluated at intervals for sensitive data exposure (e.g., names, addresses) by querying prompts likely to retrieve memorized content.
+   We periodically evaluated models for exposure of sensitive data, specifically probing for instances where names, addresses, or other private details could be retrieved from memorized content.
 
-3. **Privacy Techniques**  
-   Differential privacy with varying noise levels was applied to measure its effect on memorization rates, balancing privacy and model performance.
+3. **Privacy Preservation Techniques**  
+   Differential privacy was applied with adjustable noise levels to evaluate its impact on reducing memorization risks while balancing model accuracy.
 
-4. **Economic Impact Model**  
-   We created a cost model based on case studies to estimate direct and indirect costs (e.g., fines, loss of trust) associated with privacy breaches.
+4. **Economic Cost Model**  
+   Using case studies, we developed a cost model to estimate both direct financial penalties (e.g., fines) and indirect costs (e.g., diminished consumer trust) resulting from privacy violations.
 
 5. **Evaluation Metrics**  
-   - **Exposure Frequency**: Queries resulting in sensitive information exposure.
-   - **Utility Degradation**: Model performance reduction with privacy techniques.
-   - **Cost Impact**: Estimated financial impact from privacy breaches.
+   - **Exposure Rate**: Frequency of queries revealing sensitive data.
+   - **Utility Loss**: Performance degradation resulting from privacy techniques.
+   - **Cost Analysis**: Financial estimates of privacy breaches based on real-world scenarios.
 
-This setup enabled us to analyze privacy risks and the practical efficacy of privacy solutions, guiding secure and economically viable LLM applications.
-
-
+This framework enabled a thorough analysis of privacy risks and the practical effectiveness of mitigation methods, informing the development of secure, economically sustainable LLM applications.
 
 
 
