@@ -332,7 +332,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2. Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-leakage-evaluation">3. Privacy Leakage Evaluation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-preserving-techniques">4. Privacy-Preserving Techniques</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">5. Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-on-llms">5. Impact on LLMs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">6. Metrics</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup">6. Experimental Setup</a><ul class="nav section-nav flex-column">
@@ -344,6 +345,15 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-normalized-occurrences-vs-generation-probability">1. Analysis of Normalized Occurrences vs. Generation Probability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-type-distribution">2. PII Type Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-occurrence-rate-per-document">3. PII Occurrence Rate per Document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-analysis-of-person-entities">4. Detailed Analysis of “PERSON” Entities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ip-address-entities">5. Analysis of “IP_ADDRESS” Entities</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
 </ul>
 
@@ -375,20 +385,18 @@ authors:</p>
 <p>By processing vast amounts of sensitive data, ranging from personal consumer details to government-held records, LLMs and other deep learning systems can unintentionally expose confidential information, leading to significant financial and reputational harm. These privacy leaks pose not only a direct economic cost—such as regulatory fines, litigation expenses, and erosion of consumer trust—but also broader impacts on innovation and market efficiency.</p>
 <p>In this paper, we aim to understand the mechanisms behind privacy leaks in LLMs and their potential impacts. We investigate how these models inadvertently expose sensitive information and examine the conditions under which such leaks occur. Specifically, we explore the nature of data extraction vulnerabilities that arise during training, considering factors such as model architecture, training data characteristics, and deployment scenarios. Our analysis includes a comprehensive review of the different types of information that can be unintentionally revealed, from individual data points to aggregated insights, and the specific technical and operational factors that contribute to these leaks. By identifying the key mechanisms of privacy leakage, we aim to establish a foundational understanding that will inform the development of more secure LLMs.</p>
 <p>To understand the economic significance of privacy leaks, we assess both direct financial impacts—such as regulatory fines, litigation costs, and resource allocation for breach mitigation—and indirect consequences, including erosion of consumer trust, reduced willingness to share data, and diminished brand reputation. Privacy leaks can lead to significant financial repercussions beyond immediate penalties, as organizations may face long-term costs associated with rebuilding their reputation and regaining consumer confidence. Moreover, privacy breaches can deter potential business partnerships, limit access to valuable datasets, and hinder collaborations that are critical for innovation. The economic fallout extends to a reduction in market competitiveness, particularly for smaller enterprises that may lack the resources to manage privacy risks effectively. These combined effects highlight the far-reaching implications of privacy leaks, not just for individual organizations but for the overall economic landscape, potentially stifling growth and innovation in the AI sector.</p>
-<p>Our contribution is three-fold:</p>
+<p>Our contribution is two-fold:</p>
 <ol class="arabic simple">
+<li><p>We provided quatitative analysis on privacy leakage in internal snapshots popular for training large language models.</p></li>
 <li><p>We analyze the specific vulnerabilities within LLMs that lead to privacy leaks, providing a technical overview of how private information may be inadvertently exposed.</p></li>
-<li><p>We quantify the economic impact of privacy breaches, focusing on both direct costs (e.g., regulatory fines, litigation expenses) and indirect effects on consumer trust and market competition.</p></li>
-<li><p>We propose strategies to mitigate privacy risks in LLMs, including the adoption of privacy-preserving technologies and the development of regulatory frameworks that balance innovation with data protection.</p></li>
 </ol>
 </section>
 <section id="background">
 <h1>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h1>
-<p>Here is the text updated with the citation format you requested:</p>
-<p><strong>Large Language Models.</strong> Large Language Models (LLMs) have emerged as transformative technologies in artificial intelligence, capable of performing various tasks such as natural language understanding, text generation, and translation <span id="id1">[<a class="reference internal" href="#id22" title="A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin. Attention is all you need. In Advances in Neural Information Processing Systems (NeurIPS). 2017.">Vaswani <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id23" title="A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever. Language models are unsupervised multitask learners. OpenAI Blog, 2019.">Radford <em>et al.</em>, 2019</a>, <a class="reference internal" href="#id24" title="C. Raffel, N. Shazeer, A. Roberts, K. Lee, S. Narang, M. Matena, Y. Zhou, W. Li, and P. J. Liu. Exploring the limits of transfer learning with a unified text-to-text transformer. Journal of Machine Learning Research, 2020.">Raffel <em>et al.</em>, 2020</a>]</span>. These models, such as GPT-3 <span id="id2">[<a class="reference internal" href="#id25" title="T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell, S. Agarwal, A. Herbert-Voss, G. Krueger, T. Henighan, R. Child, A. Ramesh, D. M. Ziegler, J. Wu, C. Winter, C. Hesse, M. Chen, E. Sigler, M. Litwin, S. Gray, B. Chess, J. Clark, C. Berner, S. McCandlish, A. Radford, I. Sutskever, and D. Amodei. Language models are few-shot learners. In Advances in Neural Information Processing Systems (NeurIPS). 2020.">Brown <em>et al.</em>, 2020</a>]</span> and BERT <span id="id3">[<a class="reference internal" href="#id26" title="J. Devlin, M. W. Chang, K. Lee, and K. Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL). 2019.">Devlin <em>et al.</em>, 2019</a>]</span>, are trained on massive datasets from diverse sources, including books, articles, and websites, enabling them to generate coherent and contextually appropriate text. Their capabilities make LLMs valuable across domains such as customer service, content creation, research assistance, healthcare <span id="id4">[<a class="reference internal" href="#id27" title="A. Esteva, A. Robicquet, B. Ramsundar, V. Kuleshov, M. DePristo, K. Chou, C. Cui, G. Corrado, S. Thrun, and J. Dean. A guide to deep learning in healthcare. Nature Medicine, 2019.">Esteva <em>et al.</em>, 2019</a>]</span>, and legal document processing <span id="id5">[<a class="reference internal" href="#id28" title="M. J. Bommarito and D. M. Katz. A study of artificial intelligence in legal document analysis. Journal of Artificial Intelligence Research, 2018.">Bommarito and Katz, 2018</a>]</span>. However, LLMs also present significant privacy challenges. During training, these models can inadvertently memorize sensitive or personally identifiable information, potentially exposing it during inference <span id="id6">[<a class="reference internal" href="#id29" title="N. Carlini, F. Tramer, E. Wallace, M. Jagielski, A. Herbert-Voss, K. Lee, A. Roberts, T. Brown, D. Song, U. Erlingsson, A. Oprea, and C. Raffel. Extracting training data from large language models. In USENIX Security Symposium. 2021.">Carlini <em>et al.</em>, 2021</a>]</span>. Such privacy leaks have raised concerns about their use in real-world applications, where the risk of exposing confidential information could have serious legal and economic repercussions <span id="id7">[<a class="reference internal" href="#id30" title="R. Shokri, M. Stronati, C. Song, and V. Shmatikov. Membership inference attacks against machine learning models. In Proceedings of the 2017 IEEE Symposium on Security and Privacy. 2017.">Shokri <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id31" title="B. Jayaraman and D. Evans. Evaluating differentially private machine learning in practice. In Proceedings of the 28th USENIX Security Symposium. 2019.">Jayaraman and Evans, 2019</a>]</span>. Addressing these risks requires the development of privacy-preserving techniques such as differential privacy <span id="id8">[<a class="reference internal" href="#id32" title="M. Abadi, A. Chu, I. Goodfellow, H. B. McMahan, I. Mironov, K. Talwar, and L. Zhang. Deep learning with differential privacy. In Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security. 2016.">Abadi <em>et al.</em>, 2016</a>]</span> and data anonymization, as well as robust regulatory frameworks to protect data while fostering innovation <span id="id9">[<a class="reference internal" href="#id33" title="M. Brundage, S. Avin, J. Clark, H. Toner, P. Eckersley, B. Garfinkel, A. Dafoe, P. Scharre, T. Zeitzoff, B. Filar, H. Anderson, H. Roff, R. Crootof, O. Evans, M. Page, J. Bryson, R. Yampolskiy, and D. Amodei. The malicious use of artificial intelligence: forecasting, prevention, and mitigation. arXiv preprint arXiv:1802.07228, 2018.">Brundage <em>et al.</em>, 2018</a>]</span>.</p>
-<p><strong>Data Privacy and Utility in AI Models.</strong> The balance between data privacy and utility is a crucial issue, particularly in the context of large-scale AI models. Differential privacy has emerged as a popular solution to protect sensitive information in datasets, but it often introduces significant noise, leading to reduced data accuracy and economic inefficiencies <span id="id10">[<a class="reference internal" href="#id17" title="S. Ruggles. When privacy protection goes wrong: how and why the 2020 census confidentiality program failed. Journal of Economic Perspectives, 2024. URL: https://doi.org/10.1257/JEP.38.2.201, doi:10.1257/JEP.38.2.201.">Ruggles, 2024</a>]</span>. This trade-off has been further examined in the context of health disparities, where privacy measures disproportionately distort data for smaller populations, raising concerns about fairness and resource allocation <span id="id11">[<a class="reference internal" href="#id18" title="A. R. Santos-Lozada, J. T. Howard, and A. M. Verdery. How differential privacy will affect our understanding of health disparities in the united states. Proceedings of the National Academy of Sciences, 2020. URL: https://doi.org/10.1073/PNAS.2003714117, doi:10.1073/PNAS.2003714117.">Santos-Lozada <em>et al.</em>, 2020</a>]</span>.
-Traditional statistical disclosure methods have been defended as viable alternatives, suggesting that newer techniques like differential privacy may not always offer superior protection without substantial economic costs <span id="id12">[<a class="reference internal" href="#id19" title="K. Muralidhar and J. Domingo-Ferrer. A rejoinder to garfinkel (2023) – legacy statistical disclosure limitation techniques for protecting 2020 decennial us census: still a viable option. Journal of Official Statistics, 2023. URL: https://doi.org/10.2478/JOS-2023-0019, doi:10.2478/JOS-2023-0019.">Muralidhar and Domingo-Ferrer, 2023</a>]</span>. In response, optimization frameworks have been proposed to find a middle ground, allowing for both privacy and data utility, though they require careful balancing to avoid significant losses in either area <span id="id13">[<a class="reference internal" href="#id20" title="V. J. Hotz, C. Bollinger, T. Komarova, C. Manski, R. Moffitt, D. Nekipelov, A. J. Sojourner, and B. Spencer. Balancing data privacy and usability in the federal statistical system. Proceedings of the National Academy of Sciences, 2022. URL: https://doi.org/10.1073/PNAS.2104906119, doi:10.1073/PNAS.2104906119.">Hotz <em>et al.</em>, 2022</a>]</span>.
-The risks associated with privacy leakage from AI models, particularly in high-stakes sectors like healthcare and finance, underscore the need for better privacy-preserving techniques. Misuse of privacy mechanisms can lead to economic losses through reduced data reliability and non-compliance with regulations, making this a critical area for future research <span id="id14">[<a class="reference internal" href="#id21" title="J. Domingo-Ferrer, D. Sánchez, and A. Blanco-Justicia. The limits of differential privacy (and its misuse in data release and machine learning). Communications of the ACM, 2021. URL: https://doi.org/10.1145/3433638, doi:10.1145/3433638.">Domingo-Ferrer <em>et al.</em>, 2021</a>]</span>.</p>
+<p><strong>Large Language Models.</strong> Large Language Models (LLMs) have emerged as transformative technologies in artificial intelligence, capable of performing various tasks such as natural language understanding, text generation, and translation <span id="id1">[<a class="reference internal" href="#id23" title="A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin. Attention is all you need. In Advances in Neural Information Processing Systems (NeurIPS). 2017.">Vaswani <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id24" title="A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever. Language models are unsupervised multitask learners. OpenAI Blog, 2019.">Radford <em>et al.</em>, 2019</a>, <a class="reference internal" href="#id25" title="C. Raffel, N. Shazeer, A. Roberts, K. Lee, S. Narang, M. Matena, Y. Zhou, W. Li, and P. J. Liu. Exploring the limits of transfer learning with a unified text-to-text transformer. Journal of Machine Learning Research, 2020.">Raffel <em>et al.</em>, 2020</a>]</span>. These models, such as GPT-3 <span id="id2">[<a class="reference internal" href="#id26" title="T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell, S. Agarwal, A. Herbert-Voss, G. Krueger, T. Henighan, R. Child, A. Ramesh, D. M. Ziegler, J. Wu, C. Winter, C. Hesse, M. Chen, E. Sigler, M. Litwin, S. Gray, B. Chess, J. Clark, C. Berner, S. McCandlish, A. Radford, I. Sutskever, and D. Amodei. Language models are few-shot learners. In Advances in Neural Information Processing Systems (NeurIPS). 2020.">Brown <em>et al.</em>, 2020</a>]</span> and BERT <span id="id3">[<a class="reference internal" href="#id27" title="J. Devlin, M. W. Chang, K. Lee, and K. Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL). 2019.">Devlin <em>et al.</em>, 2019</a>]</span>, are trained on massive datasets from diverse sources, including books, articles, and websites, enabling them to generate coherent and contextually appropriate text. Their capabilities make LLMs valuable across domains such as customer service, content creation, research assistance, healthcare <span id="id4">[<a class="reference internal" href="#id28" title="A. Esteva, A. Robicquet, B. Ramsundar, V. Kuleshov, M. DePristo, K. Chou, C. Cui, G. Corrado, S. Thrun, and J. Dean. A guide to deep learning in healthcare. Nature Medicine, 2019.">Esteva <em>et al.</em>, 2019</a>]</span>, and legal document processing <span id="id5">[<a class="reference internal" href="#id29" title="M. J. Bommarito and D. M. Katz. A study of artificial intelligence in legal document analysis. Journal of Artificial Intelligence Research, 2018.">Bommarito and Katz, 2018</a>]</span>. However, LLMs also present significant privacy challenges. During training, these models can inadvertently memorize sensitive or personally identifiable information, potentially exposing it during inference <span id="id6">[<a class="reference internal" href="#id30" title="N. Carlini, F. Tramer, E. Wallace, M. Jagielski, A. Herbert-Voss, K. Lee, A. Roberts, T. Brown, D. Song, U. Erlingsson, A. Oprea, and C. Raffel. Extracting training data from large language models. In USENIX Security Symposium. 2021.">Carlini <em>et al.</em>, 2021</a>]</span>. Such privacy leaks have raised concerns about their use in real-world applications, where the risk of exposing confidential information could have serious legal and economic repercussions <span id="id7">[<a class="reference internal" href="#id31" title="R. Shokri, M. Stronati, C. Song, and V. Shmatikov. Membership inference attacks against machine learning models. In Proceedings of the 2017 IEEE Symposium on Security and Privacy. 2017.">Shokri <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id32" title="B. Jayaraman and D. Evans. Evaluating differentially private machine learning in practice. In Proceedings of the 28th USENIX Security Symposium. 2019.">Jayaraman and Evans, 2019</a>]</span>. Addressing these risks requires the development of privacy-preserving techniques such as differential privacy <span id="id8">[<a class="reference internal" href="#id33" title="M. Abadi, A. Chu, I. Goodfellow, H. B. McMahan, I. Mironov, K. Talwar, and L. Zhang. Deep learning with differential privacy. In Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security. 2016.">Abadi <em>et al.</em>, 2016</a>]</span> and data anonymization, as well as robust regulatory frameworks to protect data while fostering innovation <span id="id9">[<a class="reference internal" href="#id34" title="M. Brundage, S. Avin, J. Clark, H. Toner, P. Eckersley, B. Garfinkel, A. Dafoe, P. Scharre, T. Zeitzoff, B. Filar, H. Anderson, H. Roff, R. Crootof, O. Evans, M. Page, J. Bryson, R. Yampolskiy, and D. Amodei. The malicious use of artificial intelligence: forecasting, prevention, and mitigation. arXiv preprint arXiv:1802.07228, 2018.">Brundage <em>et al.</em>, 2018</a>]</span>.</p>
+<p><strong>Data Privacy and Utility in AI Models.</strong> The balance between data privacy and utility is a crucial issue, particularly in the context of large-scale AI models. Differential privacy has emerged as a popular solution to protect sensitive information in datasets, but it often introduces significant noise, leading to reduced data accuracy and economic inefficiencies <span id="id10">[<a class="reference internal" href="#id18" title="S. Ruggles. When privacy protection goes wrong: how and why the 2020 census confidentiality program failed. Journal of Economic Perspectives, 2024. URL: https://doi.org/10.1257/JEP.38.2.201, doi:10.1257/JEP.38.2.201.">Ruggles, 2024</a>]</span>. This trade-off has been further examined in the context of health disparities, where privacy measures disproportionately distort data for smaller populations, raising concerns about fairness and resource allocation <span id="id11">[<a class="reference internal" href="#id19" title="A. R. Santos-Lozada, J. T. Howard, and A. M. Verdery. How differential privacy will affect our understanding of health disparities in the united states. Proceedings of the National Academy of Sciences, 2020. URL: https://doi.org/10.1073/PNAS.2003714117, doi:10.1073/PNAS.2003714117.">Santos-Lozada <em>et al.</em>, 2020</a>]</span>.
+Traditional statistical disclosure methods have been defended as viable alternatives, suggesting that newer techniques like differential privacy may not always offer superior protection without substantial economic costs <span id="id12">[<a class="reference internal" href="#id20" title="K. Muralidhar and J. Domingo-Ferrer. A rejoinder to garfinkel (2023) – legacy statistical disclosure limitation techniques for protecting 2020 decennial us census: still a viable option. Journal of Official Statistics, 2023. URL: https://doi.org/10.2478/JOS-2023-0019, doi:10.2478/JOS-2023-0019.">Muralidhar and Domingo-Ferrer, 2023</a>]</span>. In response, optimization frameworks have been proposed to find a middle ground, allowing for both privacy and data utility, though they require careful balancing to avoid significant losses in either area <span id="id13">[<a class="reference internal" href="#id21" title="V. J. Hotz, C. Bollinger, T. Komarova, C. Manski, R. Moffitt, D. Nekipelov, A. J. Sojourner, and B. Spencer. Balancing data privacy and usability in the federal statistical system. Proceedings of the National Academy of Sciences, 2022. URL: https://doi.org/10.1073/PNAS.2104906119, doi:10.1073/PNAS.2104906119.">Hotz <em>et al.</em>, 2022</a>]</span>.
+The risks associated with privacy leakage from AI models, particularly in high-stakes sectors like healthcare and finance, underscore the need for better privacy-preserving techniques. Misuse of privacy mechanisms can lead to economic losses through reduced data reliability and non-compliance with regulations, making this a critical area for future research <span id="id14">[<a class="reference internal" href="#id22" title="J. Domingo-Ferrer, D. Sánchez, and A. Blanco-Justicia. The limits of differential privacy (and its misuse in data release and machine learning). Communications of the ACM, 2021. URL: https://doi.org/10.1145/3433638, doi:10.1145/3433638.">Domingo-Ferrer <em>et al.</em>, 2021</a>]</span>.</p>
 </section>
 <section id="privacy-leakage-in-llms">
 <h1>Privacy Leakage in LLMs<a class="headerlink" href="#privacy-leakage-in-llms" title="Permalink to this heading">#</a></h1>
@@ -398,7 +406,6 @@ The risks associated with privacy leakage from AI models, particularly in high-s
 <ol class="arabic simple">
 <li><p><strong>To what extent do LLMs memorize sensitive information during training?</strong></p></li>
 <li><p><strong>What factors influence the likelihood of privacy leakage in LLMs?</strong></p></li>
-<li><p><strong>How effective are privacy-preserving techniques, such as differential privacy, in mitigating these risks?</strong></p></li>
 </ol>
 <p>The goal is to quantify the trade-off between model utility and privacy risk, providing insight into how to train LLMs while minimizing the potential for privacy breaches.</p>
 </section>
@@ -434,13 +441,16 @@ The risks associated with privacy leakage from AI models, particularly in high-s
 <h3>4. Privacy-Preserving Techniques<a class="headerlink" href="#privacy-preserving-techniques" title="Permalink to this heading">#</a></h3>
 <p>We explored privacy-preserving techniques, such as differential privacy, by simulating the effect of adding noise to the dataset. This allowed us to visualize how privacy-preserving methods could alter the data distribution and reduce the likelihood of sensitive information being memorized.</p>
 </section>
+<section id="impact-on-llms">
+<h3>5. Impact on LLMs<a class="headerlink" href="#impact-on-llms" title="Permalink to this heading">#</a></h3>
+<p>We also analyze the generation of the state-of-the-art AI model, GPT4-o, to determine if it is influenced by privacy leakage. Specifically, we examine the correlation between the frequency of specific privacy information occurrences in the training data and the probability of GPT4-o generating such data. In this work, we measure how privacy exposure impacts the model’s outputs by quantifying and comparing instances where private data appears in the generated text. Our approach involves detailed analysis of training data samples and generated outputs, aiming to identify patterns that reveal potential privacy vulnerabilities.</p>
+</section>
 <section id="metrics">
-<h3>5. Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">#</a></h3>
+<h3>6. Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">#</a></h3>
 <p>We used the following metrics for evaluation:</p>
 <ul class="simple">
 <li><p><strong>Frequency of Sensitive Information</strong>: The occurrence of specific sensitive data points within the dataset.</p></li>
 <li><p><strong>Impact of Noise Addition</strong>: A comparison of the dataset before and after applying differential privacy techniques to evaluate changes in data distribution.</p></li>
-<li><p><strong>Visualization Insights</strong>: Insights gained from visualizing the dataset and the effect of privacy-preserving methods.</p></li>
 </ul>
 </section>
 </section>
@@ -483,100 +493,117 @@ The risks associated with privacy leakage from AI models, particularly in high-s
 <li><p>Calculated across different context lengths and types</p></li>
 </ul>
 </li>
-<li><p>Privacy Exposure Rate (PER):</p>
-<ul class="simple">
-<li><p>Ratio of privacy-sensitive information appearing in generated sequences</p></li>
-<li><p>Computed as: PER = Nₚᵣᵢᵥ/Nₜₒₜₐₗ
-where Nₚᵣᵢᵥ is the number of privacy-sensitive generations and Nₜₒₜₐₗ is the total number of generations</p></li>
-</ul>
-</li>
-<li><p>Context Sensitivity Score (CSS):</p>
-<ul class="simple">
-<li><p>Measures how different contexts affect privacy-sensitive token generation</p></li>
-<li><p>Normalized score between 0 and 1, where higher values indicate greater context influence</p></li>
-</ul>
-</li>
 </ol>
 </section>
 </section>
 </section>
 <section id="results">
 <h1>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h1>
-<p><img alt="image info" src="_images/pii_count_by_type.png" />
+<p><img alt="image info" src="_images/analysis.png" />
+<img alt="image info" src="_images/pii_count_by_type.png" />
 <img alt="image info" src="_images/pii_rate_per_document.png" />
 <img alt="image info" src="_images/top_entities_person.png" />
 <img alt="image info" src="_images/top_entities_email.png" />
-<img alt="image info" src="_images/top_entities_ip_address.png" />
-<img alt="image info" src="_images/analysis.png" /></p>
+<img alt="image info" src="_images/top_entities_ip_address.png" /></p>
+</section>
+<section id="id16">
+<h1>Results<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h1>
+<section id="analysis-of-normalized-occurrences-vs-generation-probability">
+<h2>1. Analysis of Normalized Occurrences vs. Generation Probability<a class="headerlink" href="#analysis-of-normalized-occurrences-vs-generation-probability" title="Permalink to this heading">#</a></h2>
+<p>The scatter plot (Figure 1) illustrates the relationship between normalized occurrences of data points in training data and their corresponding generation probabilities in LLM outputs. The analysis reveals that higher normalized occurrences correlate with increased generation probabilities, suggesting that frequently appearing data points in training are more likely to be reproduced during inference. However, there are outliers that indicate cases where low-occurrence data points still have substantial generation probabilities, highlighting potential vulnerabilities related to memorization of rare or sensitive data.</p>
+</section>
+<section id="pii-type-distribution">
+<h2>2. PII Type Distribution<a class="headerlink" href="#pii-type-distribution" title="Permalink to this heading">#</a></h2>
+<p>The bar chart in Figure 2 shows the total count of various PII (Personally Identifiable Information) types detected across the dataset. The data indicates that “PERSON” entities are the most frequent, followed by “GPE” (Geopolitical Entities). Other PII types such as phone numbers and email addresses have significantly lower frequencies. This distribution emphasizes the potential risk areas for privacy leakage, particularly in the context of models trained on extensive text sources that may contain personal or organizational data.</p>
+</section>
+<section id="pii-occurrence-rate-per-document">
+<h2>3. PII Occurrence Rate per Document<a class="headerlink" href="#pii-occurrence-rate-per-document" title="Permalink to this heading">#</a></h2>
+<p>Figure 3 presents the rate of each PII type’s occurrence per document, showcasing how prevalent each type of sensitive information is within individual documents. The analysis points out that both “PERSON” and “GPE” entities are present in over 50% of documents, making them the most common types of sensitive information. This high occurrence rate poses a notable risk for privacy exposure in model outputs.</p>
+</section>
+<section id="detailed-analysis-of-person-entities">
+<h2>4. Detailed Analysis of “PERSON” Entities<a class="headerlink" href="#detailed-analysis-of-person-entities" title="Permalink to this heading">#</a></h2>
+<p>Figure 4 highlights the top 50 most frequent “PERSON” entities in the dataset, with “Obama” appearing most frequently, followed by “Jesus” and other common names. This breakdown underscores the memorization risk associated with high-frequency names, which are more likely to be generated by LLMs when prompted, potentially exposing sensitive or context-specific information.</p>
+</section>
+<section id="analysis-of-ip-address-entities">
+<h2>5. Analysis of “IP_ADDRESS” Entities<a class="headerlink" href="#analysis-of-ip-address-entities" title="Permalink to this heading">#</a></h2>
+<p>Figure 5 showcases the top 50 most frequent “IP_ADDRESS” entities detected in the dataset. The results indicate a range of public and private IP addresses, with some appearing more than 15 times. Although the presence of public or commonly used IP addresses may not always pose privacy risks, the repeated appearance of certain private IP addresses or those associated with internal networks highlights a potential source of unintended privacy exposure.</p>
+</section>
+</section>
+<section id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
+<p>This study highlights the critical need for robust privacy-preserving strategies in large language models (LLMs). Through an in-depth analysis of data occurrence and generation patterns, we observed a clear correlation between the frequency of data in training sets and the likelihood of their reproduction during model inference. The results underscored that certain types of sensitive information, especially “PERSON” and “GPE” entities, have higher exposure risks due to their prevalence in training data.</p>
+<p>Moreover, the detailed examination of specific PII types, such as names and IP addresses, revealed that even rare or contextually unique data points could be memorized and generated by LLMs. These findings emphasize that while high-frequency data pose significant risks, less common sensitive data should not be overlooked, as they can still contribute to privacy leaks.</p>
+<p>Addressing these privacy risks is essential not only to comply with regulations and protect user data but also to maintain public trust and promote sustainable AI development. The incorporation of privacy-preserving techniques, such as differential privacy and data anonymization, can mitigate these risks and enhance the overall security of AI applications. Moving forward, developing comprehensive regulatory frameworks that balance privacy, data utility, and innovation will be critical for fostering a responsible AI ecosystem.</p>
+<p>This study serves as a foundational step towards understanding the mechanisms behind privacy leaks in LLMs and their economic implications. By bridging technical insights with broader economic impacts, we underscore the importance of continued research in privacy preservation to support safe and effective AI deployment.</p>
 </section>
 <section id="bibliography">
 <h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this heading">#</a></h1>
-<div class="docutils container" id="id16">
-<div class="citation" id="id22" role="doc-biblioentry">
+<div class="docutils container" id="id17">
+<div class="citation" id="id23" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin. Attention is all you need. In <em>Advances in Neural Information Processing Systems (NeurIPS)</em>. 2017.</p>
 </div>
-<div class="citation" id="id23" role="doc-biblioentry">
+<div class="citation" id="id24" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
 <p>A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, and I. Sutskever. Language models are unsupervised multitask learners. OpenAI Blog, 2019.</p>
 </div>
-<div class="citation" id="id24" role="doc-biblioentry">
+<div class="citation" id="id25" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">3</a><span class="fn-bracket">]</span></span>
 <p>C. Raffel, N. Shazeer, A. Roberts, K. Lee, S. Narang, M. Matena, Y. Zhou, W. Li, and P. J. Liu. Exploring the limits of transfer learning with a unified text-to-text transformer. <em>Journal of Machine Learning Research</em>, 2020.</p>
 </div>
-<div class="citation" id="id25" role="doc-biblioentry">
+<div class="citation" id="id26" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">4</a><span class="fn-bracket">]</span></span>
 <p>T. B. Brown, B. Mann, N. Ryder, M. Subbiah, J. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell, S. Agarwal, A. Herbert-Voss, G. Krueger, T. Henighan, R. Child, A. Ramesh, D. M. Ziegler, J. Wu, C. Winter, C. Hesse, M. Chen, E. Sigler, M. Litwin, S. Gray, B. Chess, J. Clark, C. Berner, S. McCandlish, A. Radford, I. Sutskever, and D. Amodei. Language models are few-shot learners. In <em>Advances in Neural Information Processing Systems (NeurIPS)</em>. 2020.</p>
 </div>
-<div class="citation" id="id26" role="doc-biblioentry">
+<div class="citation" id="id27" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">5</a><span class="fn-bracket">]</span></span>
 <p>J. Devlin, M. W. Chang, K. Lee, and K. Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. In <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)</em>. 2019.</p>
 </div>
-<div class="citation" id="id27" role="doc-biblioentry">
+<div class="citation" id="id28" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">6</a><span class="fn-bracket">]</span></span>
 <p>A. Esteva, A. Robicquet, B. Ramsundar, V. Kuleshov, M. DePristo, K. Chou, C. Cui, G. Corrado, S. Thrun, and J. Dean. A guide to deep learning in healthcare. <em>Nature Medicine</em>, 2019.</p>
 </div>
-<div class="citation" id="id28" role="doc-biblioentry">
+<div class="citation" id="id29" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">7</a><span class="fn-bracket">]</span></span>
 <p>M. J. Bommarito and D. M. Katz. A study of artificial intelligence in legal document analysis. <em>Journal of Artificial Intelligence Research</em>, 2018.</p>
 </div>
-<div class="citation" id="id29" role="doc-biblioentry">
+<div class="citation" id="id30" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">8</a><span class="fn-bracket">]</span></span>
 <p>N. Carlini, F. Tramer, E. Wallace, M. Jagielski, A. Herbert-Voss, K. Lee, A. Roberts, T. Brown, D. Song, U. Erlingsson, A. Oprea, and C. Raffel. Extracting training data from large language models. In <em>USENIX Security Symposium</em>. 2021.</p>
 </div>
-<div class="citation" id="id30" role="doc-biblioentry">
+<div class="citation" id="id31" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">9</a><span class="fn-bracket">]</span></span>
 <p>R. Shokri, M. Stronati, C. Song, and V. Shmatikov. Membership inference attacks against machine learning models. In <em>Proceedings of the 2017 IEEE Symposium on Security and Privacy</em>. 2017.</p>
 </div>
-<div class="citation" id="id31" role="doc-biblioentry">
+<div class="citation" id="id32" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">10</a><span class="fn-bracket">]</span></span>
 <p>B. Jayaraman and D. Evans. Evaluating differentially private machine learning in practice. In <em>Proceedings of the 28th USENIX Security Symposium</em>. 2019.</p>
 </div>
-<div class="citation" id="id32" role="doc-biblioentry">
+<div class="citation" id="id33" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">11</a><span class="fn-bracket">]</span></span>
 <p>M. Abadi, A. Chu, I. Goodfellow, H. B. McMahan, I. Mironov, K. Talwar, and L. Zhang. Deep learning with differential privacy. In <em>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</em>. 2016.</p>
 </div>
-<div class="citation" id="id33" role="doc-biblioentry">
+<div class="citation" id="id34" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">12</a><span class="fn-bracket">]</span></span>
 <p>M. Brundage, S. Avin, J. Clark, H. Toner, P. Eckersley, B. Garfinkel, A. Dafoe, P. Scharre, T. Zeitzoff, B. Filar, H. Anderson, H. Roff, R. Crootof, O. Evans, M. Page, J. Bryson, R. Yampolskiy, and D. Amodei. The malicious use of artificial intelligence: forecasting, prevention, and mitigation. arXiv preprint arXiv:1802.07228, 2018.</p>
 </div>
-<div class="citation" id="id17" role="doc-biblioentry">
+<div class="citation" id="id18" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">13</a><span class="fn-bracket">]</span></span>
 <p>S. Ruggles. When privacy protection goes wrong: how and why the 2020 census confidentiality program failed. <em>Journal of Economic Perspectives</em>, 2024. URL: <a class="reference external" href="https://doi.org/10.1257/JEP.38.2.201">https://doi.org/10.1257/JEP.38.2.201</a>, <a class="reference external" href="https://doi.org/10.1257/JEP.38.2.201">doi:10.1257/JEP.38.2.201</a>.</p>
 </div>
-<div class="citation" id="id18" role="doc-biblioentry">
+<div class="citation" id="id19" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">14</a><span class="fn-bracket">]</span></span>
 <p>A. R. Santos-Lozada, J. T. Howard, and A. M. Verdery. How differential privacy will affect our understanding of health disparities in the united states. <em>Proceedings of the National Academy of Sciences</em>, 2020. URL: <a class="reference external" href="https://doi.org/10.1073/PNAS.2003714117">https://doi.org/10.1073/PNAS.2003714117</a>, <a class="reference external" href="https://doi.org/10.1073/PNAS.2003714117">doi:10.1073/PNAS.2003714117</a>.</p>
 </div>
-<div class="citation" id="id19" role="doc-biblioentry">
+<div class="citation" id="id20" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">15</a><span class="fn-bracket">]</span></span>
 <p>K. Muralidhar and J. Domingo-Ferrer. A rejoinder to garfinkel (2023) – legacy statistical disclosure limitation techniques for protecting 2020 decennial us census: still a viable option. <em>Journal of Official Statistics</em>, 2023. URL: <a class="reference external" href="https://doi.org/10.2478/JOS-2023-0019">https://doi.org/10.2478/JOS-2023-0019</a>, <a class="reference external" href="https://doi.org/10.2478/JOS-2023-0019">doi:10.2478/JOS-2023-0019</a>.</p>
 </div>
-<div class="citation" id="id20" role="doc-biblioentry">
+<div class="citation" id="id21" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">16</a><span class="fn-bracket">]</span></span>
 <p>V. J. Hotz, C. Bollinger, T. Komarova, C. Manski, R. Moffitt, D. Nekipelov, A. J. Sojourner, and B. Spencer. Balancing data privacy and usability in the federal statistical system. <em>Proceedings of the National Academy of Sciences</em>, 2022. URL: <a class="reference external" href="https://doi.org/10.1073/PNAS.2104906119">https://doi.org/10.1073/PNAS.2104906119</a>, <a class="reference external" href="https://doi.org/10.1073/PNAS.2104906119">doi:10.1073/PNAS.2104906119</a>.</p>
 </div>
-<div class="citation" id="id21" role="doc-biblioentry">
+<div class="citation" id="id22" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">17</a><span class="fn-bracket">]</span></span>
 <p>J. Domingo-Ferrer, D. Sánchez, and A. Blanco-Justicia. The limits of differential privacy (and its misuse in data release and machine learning). <em>Communications of the ACM</em>, 2021. URL: <a class="reference external" href="https://doi.org/10.1145/3433638">https://doi.org/10.1145/3433638</a>, <a class="reference external" href="https://doi.org/10.1145/3433638">doi:10.1145/3433638</a>.</p>
 </div>
@@ -641,7 +668,8 @@ where Nₚᵣᵢᵥ is the number of privacy-sensitive generations and Nₜₒ�
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2. Data Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-leakage-evaluation">3. Privacy Leakage Evaluation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-preserving-techniques">4. Privacy-Preserving Techniques</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">5. Metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-on-llms">5. Impact on LLMs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">6. Metrics</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-setup">6. Experimental Setup</a><ul class="nav section-nav flex-column">
@@ -653,6 +681,15 @@ where Nₚᵣᵢᵥ is the number of privacy-sensitive generations and Nₜₒ�
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-normalized-occurrences-vs-generation-probability">1. Analysis of Normalized Occurrences vs. Generation Probability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-type-distribution">2. PII Type Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-occurrence-rate-per-document">3. PII Occurrence Rate per Document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-analysis-of-person-entities">4. Detailed Analysis of “PERSON” Entities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ip-address-entities">5. Analysis of “IP_ADDRESS” Entities</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
 </ul>
 
