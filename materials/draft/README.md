@@ -116,6 +116,8 @@ build-jb .
 ```
   
 **Homework**
+- Improve your Korinek reflection: make it >300 words, and commit improvements over 3 separate days.
+  - Use AI to improve your piece!
 - Revise and improve your Literature Review
   - utilize ChatGPT/Claude and commit improvements over 3 days
 - Begin your data empirical work (regressions, etc.)
@@ -127,33 +129,52 @@ build-jb .
 
 ### Agenda
 
-- Present your literature summary & methodology sections.
-    - 10 minutes per student.
-- *TA* Short presentation on job talk paper
-- *TA* Coping with Rejection (30 min.)
-    - Rejection from a Journal.
-    - Rejection from Graduate School.
-    - Rejection from a Job.
+- HW Review: prompts people found useful for the Korinek reflection and lit review improvements (10 minutes)
+
+- Instructional on best practices aiding your literature search (20 minutes)
+  - Beyond Litmaps & Paperpile
+
+- Updates on your paper progress (80 minutes)
+  - roadblocks and problems you've encountered
+  - methodology and lit review section updates
+
+    
+- *TA* Git refresher and Cleanup
+
+- Debugging empirical work + How to use AI to help
 
 **Homework**
-- Write the first draft of the results section.
+- Please email your NASA certificate to emurins1@jh.edu
+- Write the first draft of the results section. ([Here's](https://twp.duke.edu/sites/twp.duke.edu/files/file-attachments/econ.original.pdf) a great resource from Duke on writing this and other sections.)
     - You should break your text into a number of smaller markdown cells.
         - This makes it easier to use ChatGPT for editing.
     - Be sure to get ChatGPT feedback on your writing.
     - In the commits you write, please include the prompts you used in ChatGPT.
 
 ## Class 10
-[Zoom link](https://zoom.us/j/99322446014?pwd=TWVRZk9iaUpTTktxa1hoQmREYjRaUT09)
+
 
 ### Agenda
 - Discuss your results section (10 minutes ea).
-- Discussion of ChatGPT/AI Whispering practices and approahces.
-- Demonstrate jupyter-nbconvert to export jupyter rise slides.
+- Go over Beyond The Streetlight presentation to learn how to make presentations in HTML
+  - Demonstrate jupyter-nbconvert to export jupyter rise slides using [Beyond the Streetlight](https://github.com/llorracc/beyond-the-streetlight)
+- Working with myst:
+  - Create new econ-ark container
+  - Restructure your paper as in contrib/AMonninger/Paper_Restructured
+  - On Sciserver we can now use `myst`. Although the usual `myst start` does not work. Instead do the following
+    ```
+    pip install mystmd
+
+    myst init
+
+    myst-start
+    ```
+  - Open the given link (might take a few minutes)
+ 
 
 **Homework**
-- Work on the presentation of your paper.
-- Revisit your LitMaps and highlight/callout/denote in someway the citations that you actually reference in your draft.
-    - Use these papers as seeds and generate a new map. See if you find new papers.
-    - Come prepared to discuss these new maps.
+- Create a conclusion section
+- Break down your paper in multiple (at least 2) parts.
+- Make a draft of the presentation of your paper.
 
 
