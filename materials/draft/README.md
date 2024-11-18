@@ -158,6 +158,11 @@ build-jb .
 - Discuss your results section (10 minutes ea).
 - Go over Beyond The Streetlight presentation to learn how to make presentations in HTML
   - Demonstrate jupyter-nbconvert to export jupyter rise slides using [Beyond the Streetlight](https://github.com/llorracc/beyond-the-streetlight)
+  - ```pip install RISE jupyterlab-rise ```
+  -  restart container (stop the container and restart!)
+  -  important tools:
+      - on top right corner click on the presentation symbol [Render the current notebook as Reveal Slideshow (Alt + R)] 
+      - on the RHS of jupyter-lab go to **property inspector (two screws)** --> **common tools**
 - Working with myst:
   - Create new econ-ark container
   - Restructure your paper as in contrib/AMonninger/Paper_Restructured

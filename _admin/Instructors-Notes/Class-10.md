@@ -23,9 +23,10 @@ Graduate TA:
 CC:
 - Demonstrate jupyter-nbconvert to export jupyter rise slides using [Beyond the Streetlight](https://github.com/llorracc/beyond-the-streetlight)
   - git clone repo: git clone https://github.com/llorracc/beyond-the-streetlight
-  - pip install node.js
-  - pip install RISE
+  -  ```pip install RISE jupyterlab-rise ```
+  -  restart container (stop the container and restart!)
   - discuss: RS100_Discussion_Slides.ipynb
+  - on top right corner click on the presentation symbol [Render the current notebook as Reveal Slideshow (Alt + R)] 
   - on the RHS of jupyter-lab go to **property inspector** --> **common tools**
   - ```jupyter-nbconvert RS100_Discussion_Slides.ipynb --to html```
   - vs **File** --> **Save and Export Notebook as** --> **Reveal.js Slides**

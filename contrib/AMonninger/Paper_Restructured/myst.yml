@@ -12,3 +12,7 @@ project:
     - name: Adrian Monninger
   bibliography:
     - references.bib
+  exports:
+  - format: pdf
+    template: arxiv_nips
+    output: Paper_Restructured.pdf
