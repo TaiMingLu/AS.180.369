@@ -14720,6 +14720,173 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="text-align: center; background: linear-gradient(to right, #f8f9fa, #e9ecef); padding: 15px; border-radius: 15px;"> 
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 0.9em;">Privacy Challenges in Large Language Models</h3> 
+    <!-- Training Data Section --> 
+    <div style="margin: 15px 0; text-align: left; border-left: 5px solid #4a90e2; padding-left: 15px; margin-bottom: 0px"> 
+        <h4 style="color: #4a90e2; font-size: 0.8em; margin-bottom: 0px">1. Accidental Data Exposure</h4> 
+        <p style="color: #2c3e50; margin: 5px 0; font-size: 0.7em;">How AI models might leak private information:</p> 
+        <ul style="list-style-type: none; padding-left: 10px; font-size: 0.65em;"> 
+            <li style="margin: 6px 0;">→ AI can remember and reveal personal information with 98% accuracy, similar to accidentally sharing private emails [Carlini et al., 2021]</li> 
+            <li style="margin: 6px 0;">→ Models can unexpectedly reveal business secrets and private conversations hidden in their training data [Carlini et al., 2021]</li> 
+            <li style="margin: 6px 0;">→ Medical AI systems risk exposing patient information, like sharing hospital records without consent [Esteva et al., 2019]</li> 
+            <li style="margin: 6px 0;">→ Skilled users can trick the AI into revealing sensitive information through careful questioning [Extracting et al., 2021]</li> 
+        </ul> 
+    </div> 
+    <!-- Membership Inference Section --> 
+    <div style="margin: 15px 0; text-align: left; border-left: 5px solid #e67e22; padding-left: 15px; margin-bottom: 0px"> 
+        <h4 style="color: #e67e22; font-size: 0.8em; margin-bottom: 0px">2. Privacy Detective Work</h4> 
+        <p style="color: #2c3e50; margin: 5px 0; font-size: 0.7em;">How outsiders can piece together private information:</p> 
+        <ul style="list-style-type: none; padding-left: 10px; font-size: 0.65em;"> 
+            <li style="margin: 6px 0;">→ Attackers can determine if your data was used to train an AI with 80% accuracy - like finding your fingerprints on a document [Shokri et al., 2017]</li> 
+            <li style="margin: 6px 0;">→ In healthcare, this could reveal whether someone was treated for a specific condition [Santos-Lozada et al., 2020]</li> 
+            <li style="margin: 6px 0;">→ Legal AI systems might accidentally expose confidential case information [Bommarito et al., 2018]</li> 
+            <li style="margin: 6px 0;">→ These detection methods are becoming more sophisticated over time [Jayaraman et al., 2019]</li> 
+        </ul> 
+    </div> 
+    <!-- Privacy Solutions Section --> 
+    <div style="margin: 15px 0; text-align: left; border-left: 5px solid #27ae60; padding-left: 15px; margin-bottom: 0px"> 
+        <h4 style="color: #27ae60; font-size: 0.8em; margin-bottom: 0px">3. Current Solutions & Their Challenges</h4> 
+        <p style="color: #2c3e50; margin: 5px 0; font-size: 0.7em;">The trade-off between privacy and usefulness:</p> 
+        <ul style="list-style-type: none; padding-left: 10px; font-size: 0.65em;"> 
+            <li style="margin: 6px 0;">→ Privacy protections can reduce AI performance by 30% - like driving a car with the brakes partially engaged [Abadi et al., 2016]</li> 
+            <li style="margin: 6px 0;">→ Sometimes older, simpler privacy methods work better than newer complex ones [Muralidhar et al., 2023]</li> 
+            <li style="margin: 6px 0;">→ Privacy measures can make AI less accurate for minority groups [Santos-Lozada et al., 2020]</li> 
+            <li style="margin: 6px 0;">→ As AI models get larger, protecting privacy becomes harder [Hotz et al., 2022]</li> 
+            <li style="margin: 6px 0;">→ Researchers emphasize the urgent need for better privacy solutions [Domingo-Ferrer et al., 2021]</li> 
+        </ul> 
+    </div> 
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="text-align: center; padding: 30px; background: #fafafa;">
+    <h3 style="margin-bottom: 30px; color: #1a237e; font-size: 18px;">Our Approach to Privacy Analysis - Experimental Setup</h3>
+    <!-- Research Goals -->
+    <div style="margin-top: 30px; margin-bottom: 30px; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+        <h4 style="margin-bottom: 25px; color: #283593; font-size: 16px;">Research Objectives</h4>
+        <div style="display: flex; justify-content: space-between; text-align: left;">
+            <div style="width: 30%;">
+                <h5 style="color: #1976d2; font-size: 14px;">1. Data Analysis</h5>
+                <p style="color: #37474f; font-size: 12px;">Quantify sensitive information in training data</p>
+            </div>
+            <div style="width: 30%;">
+                <h5 style="color: #1976d2; font-size: 14px;">2. Privacy Exposure</h5>
+                <p style="color: #37474f; font-size: 12px;">Measure frequency of private information in outputs</p>
+            </div>
+            <div style="width: 30%;">
+                <h5 style="color: #1976d2; font-size: 14px;">3. Correlation Study</h5>
+                <p style="color: #37474f; font-size: 12px;">Analyze relationship between data occurrence and generation</p>
+            </div>
+        </div>
+    </div>
+    <!-- Dataset & Model Section -->
+    <div style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+        <!-- Dataset Box -->
+        <div style="width: 40%; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+            <div style="display: flex; align-items: flex-start;">
+                <div style="background: #e3f2fd; padding: 10px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <img src="pics/hf.png" alt="FineWeb Dataset Logo" style="width: 40px;"/>
+                </div>
+                <div style="margin-left: 20px; text-align: left;">
+                    <h4 style="color: #1976d2; margin-bottom: 20px; font-size: 16px;">FineWeb Dataset</h4>
+                    <ul style="list-style: none; padding: 0; font-size: 12px;">
+                        <li style="margin: 12px 0; color: #37474f;">• Internet snapshot dataset</li>
+                        <li style="margin: 12px 0; color: #37474f;">• Rich in user-generated content</li>
+                        <li style="margin: 12px 0; color: #37474f;">• Contains diverse text data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Model Box -->
+        <div style="width: 40%; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+            <div style="display: flex; align-items: flex-start;">
+                <div style="background: #e8eaf6; padding: 10px; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <img src="pics/gpt.png" alt="GPT4-o Logo" style="width: 40px;"/>
+                </div>
+                <div style="margin-left: 20px; text-align: left;">
+                    <h4 style="color: #3949ab; margin-bottom: 20px; font-size: 16px;">GPT4-o Model</h4>
+                    <ul style="list-style: none; padding: 0; font-size: 12px;">
+                        <li style="margin: 12px 0; color: #37474f;">• State-of-the-art LLM</li>
+                        <li style="margin: 12px 0; color: #37474f;">• Advanced text generation</li>
+                        <li style="margin: 12px 0; color: #37474f;">• High performance metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="text-align: center; padding: 20px; background: #fafafa;">
+<h3 style="margin-bottom: 15px; color: #1a237e; font-size: 18px;">Experimental Methodology</h3>
+<div style="margin-bottom: 15px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+<h4 style="color: #1976d2; text-align: left; font-size: 16px; margin-bottom: 10px;">1. Data Processing Pipeline</h4>
+<div style="display: flex; justify-content: space-between;">
+<div style="width: 32%; text-align: left;">
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Data Collection</h5>
+<p style="color: #37474f; font-size: 12px;">• Extract documents with PII<br>• Filter privacy-sensitive content<br>• Tokenize using GPT4-o tokenizer</p>
+</div>
+<div style="width: 32%; text-align: left;">
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">PII Detection</h5>
+<p style="color: #37474f; font-size: 12px;">• Named Entity Recognition<br>• Pattern matching<br>• Metadata extraction</p>
+</div>
+<div style="width: 32%; text-align: left;">
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Data Preprocessing</h5>
+<p style="color: #37474f; font-size: 12px;">• Sequence tokenization<br>• Context window preparation<br>• Privacy label annotation</p>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between;">
+<div style="width: 45%; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+<h4 style="color: #1976d2; text-align: left; font-size: 16px; margin-bottom: 10px;">2. Analysis Methods</h4>
+<div style="text-align: left;">
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Next Token Probability:</h5>
+<p style="background: #f5f5f5; padding: 8px; border-radius: 5px; font-family: monospace; font-size: 12px; margin-bottom: 8px;">P(tᵢ|context) = softmax(z)ᵢ = exp(zᵢ) / Σⱼexp(zⱼ)</p>
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Sequence Probability:</h5>
+<p style="background: #f5f5f5; padding: 8px; border-radius: 5px; font-family: monospace; font-size: 12px; margin-bottom: 8px;">P(S|context) = P(t₁|context) × P(t₂|t₁) × ... × P(tₙ|t₁...tₙ₋₁)</p>
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Perplexity Score:</h5>
+<p style="background: #f5f5f5; padding: 8px; border-radius: 5px; font-family: monospace; font-size: 12px;">PPL = exp(-1/N × Σᵢlog P(tᵢ|context))</p>
+</div>
+</div>
+<div style="width: 45%; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+<h4 style="color: #1976d2; text-align: left; font-size: 16px; margin-bottom: 10px;">3. Evaluation Metrics</h4>
+<div style="text-align: left;">
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">PII Frequency</h5>
+<p style="color: #37474f; font-size: 12px; margin-bottom: 8px;">• Measure occurrence rate of sensitive information<br>• Calculate distribution of PII types<br>• Analyze frequency patterns</p>
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Generation Probability</h5>
+<p style="color: #37474f; font-size: 12px; margin-bottom: 8px;">• Calculate privacy-sensitive token generation<br>• Measure contextual generation patterns<br>• Assess privacy exposure risks</p>
+<h5 style="color: #3949ab; font-size: 14px; margin-bottom: 5px;">Correlation Analysis</h5>
+<p style="color: #37474f; font-size: 12px;">• R-squared values and significance<br>• Analyze frequency-generation relationship<br>• Evaluate leakage patterns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
